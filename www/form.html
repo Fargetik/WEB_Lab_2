@@ -18,7 +18,7 @@
             margin: 5px 0;
             width: 100%;
         }
-        
+
         select {
             padding: 10px;
             margin: 5px auto;
@@ -31,8 +31,13 @@
             color: #c020bbba;
             background-color: aqua;
         }
-    </style>
 
+        div {
+            width: 500px;
+            margin: 0.6% auto;
+        }
+        
+    </style>
 
 </head>
 <body>
@@ -61,6 +66,21 @@
 
         <button type="submit">Отправить</button>
     </form>
+
+    <div id = "result"></div>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const formData = new FormData(this)
+            let output = ""
+
+            for (const [name, value] of formData.entries()) {
+                output += `<p><b>${name}:</b> ${value} </p>`;
+            }
+            document.getElementById("result").innerHTML = output;
+        })
+    </script>
 
 </body>
 </html>
